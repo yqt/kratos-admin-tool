@@ -1,0 +1,18 @@
+#encoding=utf-8
+import os
+config = {
+    'host': 'HOSTNAME',
+    'port': 50051,
+    'prikey_name': 'PRIVATE_KEY',
+    'cert_name': 'CERTIFICATE',
+    'ss_working_dir': 'WORKING_DIR_FOR_SS',
+    'ss_run_user': 'USERNAME',
+}
+
+cur_dir = os.path.dirname(os.path.realpath(__file__))
+
+with open(os.path.join(cur_dir, config['prikey_name']), 'r') as f:
+    config['prikey'] = f.read()
+
+with open(os.path.join(cur_dir, config['cert_name']), 'r') as f:
+    config['cert'] = f.read()
